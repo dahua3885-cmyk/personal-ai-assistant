@@ -1,0 +1,8 @@
+[
+  {"id":"morning","name":"今日重点","notify":"always","prompt":"根据当前待办与资料，整理今天最重要的至多三件事，注明依据和下一步。没有资料就说明，不能编造日程。"},
+  {"id":"followup","name":"待办与等待检查","notify":"on_change","prompt":"检查用户记录的截止时间、逾期与等待反馈。仅在有需用户行动的变化时提醒；与上次结果对比，无变化则 should_notify=false。不要重复催促。"},
+  {"id":"inbox","name":"收件箱整理","notify":"on_change","prompt":"阅读指定收件箱的新文字，提取摘要与待确认行动项。对比上次结果，无新增则 should_notify=false。不要把别人说的话直接变成用户承诺。"},
+  {"id":"evening","name":"晚间复盘","notify":"always","prompt":"根据今天真实记录，整理完成证据、尚未完成的事项和明日第一步。生成草稿不等于业务完成。"},
+  {"id":"weekly","name":"每周回顾","notify":"always","prompt":"根据最近七天的记录整理成果、未解决问题与下周重点。区分事实和建议。"},
+  {"id":"repeat","name":"重复文字任务","notify":"on_change","prompt":"按 profile.md 中用户已确认的重复文字整理职责处理新输入。只产出文字，不执行任意外部操作。职责或输入未配置时报告缺项；无新增则 should_notify=false。"}
+]
