@@ -5,6 +5,8 @@ description: 搭建带默认流程的个人 AI 助理，整理本人 AI 聊天�
 
 # 个人 AI 助理
 
+当前渠道入口：优先读取 [已导入的开源桥接](references/bridge.md)，使用 Claude-to-IM-skill 与 Claude-to-IM 接飞书或微信，scripts/bridge.py 提供安装、配置和启动。下文旧自带飞书路径仅作兼容；同一机器人不同时启动两条接入。不能将源码导入说成真实账号验收完成。
+
 默认流程已经带好：每日 AI 聊天沉淀、会议录音与纪要整理。不要让新用户从空白岗位表开始，不询问职业、工作资料清单、作息或一串自动化选项。具体开场读 [简易初始化](references/onboarding.md)。
 
 ## 首次使用

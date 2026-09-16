@@ -1,0 +1,6 @@
+[submodule "vendor/Claude-to-IM"]
+	path = vendor/Claude-to-IM
+	url = https://github.com/op7418/Claude-to-IM.git
+[submodule "vendor/Claude-to-IM-skill"]
+	path = vendor/Claude-to-IM-skill
+	url = https://github.com/op7418/Claude-to-IM-skill.git

@@ -25,3 +25,6 @@ Codex 使用用户自己的 CLI 登录；`ignore_user_config` 默认 true，防�
 ## Facebook
 
 平台名不确定时先核对，不能把 Facebook 静默替换成飞书。本包没有 Facebook Messenger 适配器。用户确实需要它时，另行核对官方 Messenger Platform 的账号、应用、事件回调与权限要求再接入。
+# 当前入口
+
+优先使用已导入的 Claude-to-IM 桥接，见 [桥接说明](bridge.md)。以下旧版说明保留作兼容参考，不再表示微信源码未导入。
