@@ -1,6 +1,6 @@
 # 个人 AI 助理
 
-> 当前新增：已导入归藏的 **Claude-to-IM-skill + Claude-to-IM**，用于 Codex 接飞书与微信，提供安装、工作区配置、扫码及启动入口。见 [桥接说明](references/bridge.md)。源码构建通过，真实账号和自动化联调尚未完成，上游依赖审计存在待修复项。下方 v0.2.0 渠道表描述的是旧兼容路径；新版接入以桥接说明为准。
+> 默认接入已改为用户确认的 **cc-connect**，固定 v1.4.1 源码作为 Git 子模块导入。飞书、微信接入与极简初始化见 [cc-connect 接入说明](references/cc-connect.md)。Claude-to-IM 保留为可选候选，其审计结论不适用于 cc-connect。新学员的真实账号与内置流程仍需联调。
 
 **把你和 AI 的聊天、会议录音交给它，留下每天的决定、知识和下一步。**
 
@@ -40,11 +40,11 @@
 
 | 渠道 | 当前状态 |
 | --- | --- |
-| 飞书本人文字私聊 | 本包自带适配代码，需在用户账号上授权、配置并实测 |
-| 微信 | 腾讯已有官方 OpenClaw 微信插件路径；本包尚未集成或验证该网关 |
+| 飞书本人文字私聊 | 默认复用已导入的 cc-connect；旧自带适配代码保留兼容 |
+| 微信 | 默认复用已导入的 cc-connect；在用户自己的账号上扫码并实测 |
 | Facebook Messenger | 本包未实现；不要把 Facebook 和飞书混为一谈 |
 
-微信官方路径见 [Tencent/openclaw-weixin](https://github.com/Tencent/openclaw-weixin)，它需要 OpenClaw 环境，不是把本包渠道名称改成微信就能用。媒体接收也不等于音频已经转写。详情见 [渠道说明](references/channels.md)。
+当前配置以 [cc-connect 接入说明](references/cc-connect.md) 为准。接收媒体不等于已完成录音转写；下方 lark-cli 命令为旧兼容路径。
 
 ## 本地运行
 

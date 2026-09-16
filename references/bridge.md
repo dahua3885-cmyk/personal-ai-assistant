@@ -1,5 +1,7 @@
 # 飞书 / 微信桥接：已导入源码
 
+此页是可选 Claude-to-IM 候选。用户确认的默认方案已改为 [cc-connect](cc-connect.md)，初始化优先走该入口，不安装此页方案。
+
 采用 op7418/Claude-to-IM-skill（归藏）及其必需的核心库 op7418/Claude-to-IM。两个 Git 子模块固定提交，完整保留 MIT 许可。不是只添加链接，也不自行重写渠道。
 
 ## 使用

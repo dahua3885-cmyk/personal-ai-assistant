@@ -4,3 +4,6 @@
 [submodule "vendor/Claude-to-IM-skill"]
 	path = vendor/Claude-to-IM-skill
 	url = https://github.com/op7418/Claude-to-IM-skill.git
+[submodule "vendor/cc-connect"]
+	path = vendor/cc-connect
+	url = https://github.com/chenhg5/cc-connect.git
