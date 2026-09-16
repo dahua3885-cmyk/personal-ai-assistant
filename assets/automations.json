@@ -1,4 +1,6 @@
 [
+  {"id":"daily_chat","name":"每日 AI 聊天沉淀","runner":"workflow","recommended":true,"suggested_schedule":"每天 21:30，本地时区；次日补查前一天","notify":"on_change","prompt":"整理本人和 AI 的聊天，提取做过的事、明确决定、纠正、知识和待办，保留来源，区分用户确认与 AI 建议。"},
+  {"id":"meeting_inbox","name":"会议录音与纪要整理","runner":"workflow","recommended":true,"suggested_schedule":"每天 10:30、16:30、21:30 检查新增；用户交来材料时立即处理","notify":"on_change","prompt":"录音先转写，再整理主题、明确决定、责任人和截止日期、待核对项与可复用知识；未出现的责任人和期限不猜。"},
   {"id":"morning","name":"今日重点","notify":"always","prompt":"根据当前待办与资料，整理今天最重要的至多三件事，注明依据和下一步。没有资料就说明，不能编造日程。"},
   {"id":"followup","name":"待办与等待检查","notify":"on_change","prompt":"检查用户记录的截止时间、逾期与等待反馈。仅在有需用户行动的变化时提醒；与上次结果对比，无变化则 should_notify=false。不要重复催促。"},
   {"id":"inbox","name":"收件箱整理","notify":"on_change","prompt":"阅读指定收件箱的新文字，提取摘要与待确认行动项。对比上次结果，无新增则 should_notify=false。不要把别人说的话直接变成用户承诺。"},

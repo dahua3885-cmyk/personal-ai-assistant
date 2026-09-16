@@ -48,6 +48,11 @@ class AssistantTests(unittest.TestCase):
             self.assertEqual(model.call_count, 1)
             self.assertEqual(send.call_count, 1)
         self.assertEqual(len(list((self.workspace / "notes").glob("*.md"))), 1)
+        archives = list((self.workspace / "chats").rglob("*.md"))
+        self.assertEqual(len(archives), 1)
+        text = archives[0].read_text(encoding="utf-8")
+        self.assertIn(self.event["content"], text)
+        self.assertIn(self.answer["reply"], text)
 
     def test_failed_delivery_reuses_saved_result(self):
         with patch.object(a, "generate", return_value=self.answer) as model, patch.object(a, "deliver", side_effect=[RuntimeError("offline"), "om_ok"]) as send:

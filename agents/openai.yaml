@@ -1,4 +1,4 @@
 interface:
   display_name: "个人 AI 助理"
-  short_description: "通过访谈配置个人助理、飞书文字入口和六类可选择的主动工作模板"
-  default_prompt: "使用 $personal-ai-assistant 帮我初始化个人助理，先解释心跳，再按我的工作配置职责和自动化。"
+  short_description: "带好每日 AI 聊天沉淀和会议整理流程，简单连接聊天入口即可开始"
+  default_prompt: "使用 $personal-ai-assistant 帮我搭个人助理，介绍带好的聊天沉淀和会议整理流程，再带我接入聊天入口。"
