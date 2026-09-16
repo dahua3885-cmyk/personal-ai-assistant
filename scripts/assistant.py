@@ -6,7 +6,6 @@ import json
 import os
 from pathlib import Path
 import shutil
-import socket
 import subprocess
 import tempfile
 import time
@@ -99,19 +98,37 @@ def run(args, **kwargs):
 
 @contextlib.contextmanager
 def workspace_lock(workspace):
-    # Kernel releases socket on crash; avoids stale PID lock and concurrent duplicate processing.
-    key = str(workspace.resolve()).casefold().encode()
-    port = 30000 + int(hashlib.sha256(key).hexdigest()[:8], 16) % 25000
-    lock = socket.socket()
+    # OS file locks are released on crash and don't collide with Windows reserved TCP ports.
+    runtime = workspace / "runtime"
+    runtime.mkdir(exist_ok=True)
+    lock = (runtime / "worker.lock").open("a+b")
+    acquired = False
     try:
-        if os.name == "nt":
-            lock.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        lock.seek(0, 2)
+        if lock.tell() == 0:
+            lock.write(b"0")
+            lock.flush()
+        lock.seek(0)
         try:
-            lock.bind(("127.0.0.1", port))
+            if os.name == "nt":
+                import msvcrt
+                msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
         except OSError as exc:
             raise RuntimeError("该工作区正在处理其他任务，稍后重试") from exc
+        acquired = True
         yield
     finally:
+        if acquired:
+            lock.seek(0)
+            if os.name == "nt":
+                import msvcrt
+                msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
         lock.close()
 
 
